@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 const AuthorBookList = ({authorbooks,authors,books}) => {
     const deleteAuthorBook = async authorbookId =>{
-        const res = await fetch(`http://localhost:8000/api/authorbooks/${authorbookId}`,{
+        const res = await fetch(process.env.baseURL+`/api/authorbooks/${authorbookId}`,{
             method: 'DELETE'
         })
         const authorbook = await res.json()
@@ -15,7 +15,7 @@ const AuthorBookList = ({authorbooks,authors,books}) => {
     const [book_id, setBook] = useState('')
 
     const updateAuthorBook = async authorId => {
-    const res = await fetch(`http://localhost:8000/api/authorbooks/${authorId}`,{
+    const res = await fetch(process.env.baseURL+`/api/authorbooks/${authorId}`,{
         method: 'PUT',
         body: JSON.stringify({author_id,book_id}),
         headers: {

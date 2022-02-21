@@ -4,12 +4,12 @@ import AuthorBookList from '../components/authorbooks/AuthorBookList'
 import AddAuthorBook from '../components/authorbooks/AddAuthorBook'
 
 export const getStaticProps = async () => {
-    const res = await fetch(`http://localhost:8000/api/authorbooks`)
+    const res = await fetch(process.env.baseURL+`/api/authorbooks`)
     const authorbooks = await res.json()
 
-    const res1 = await fetch(`http://localhost:8000/api/authors`)
+    const res1 = await fetch(process.env.baseURL+`/api/authors`)
     const authors = await res1.json()
-    const res2 = await fetch(`http://localhost:8000/api/books`)
+    const res2 = await fetch(process.env.baseURL+`/api/books`)
     const books = await res2.json()
 
     return{

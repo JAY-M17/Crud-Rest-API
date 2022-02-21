@@ -6,7 +6,7 @@ const AddAuthorBook = ({authors,books}) =>{
     const [book_id, setBook] = useState('')
 
     const submitAssign = async() => {
-    const res = await fetch(`http://localhost:8000/api/authorbooks`,{
+    const res = await fetch(process.env.baseURL+`/api/authorbooks`,{
         method: 'POST',
         body: JSON.stringify({ author_id,book_id }),
         headers: {

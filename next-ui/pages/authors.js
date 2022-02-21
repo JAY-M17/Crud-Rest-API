@@ -4,7 +4,7 @@ import AuthorList from '../components/authors/AuthorList'
 import AddAuthor from '../components/authors/AddAuthor'
 
 export const getStaticProps = async () => {
-    const res = await fetch(`http://localhost:8000/api/authors`)
+    const res = await fetch(process.env.baseURL+`/api/authors`)
     const authors = await res.json()
 
     return{
@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 
 export default function Author({authors}) {
     const deleteAuthor = async authorId =>{
-        const res = await fetch(`http://localhost:8000/api/authors/${authorId}`,{
+        const res = await fetch(process.env.baseURL+`/api/authors/${authorId}`,{
             method: 'DELETE'
         })
         const author = await res.json()

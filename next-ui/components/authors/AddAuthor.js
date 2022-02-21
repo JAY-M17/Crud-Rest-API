@@ -6,7 +6,7 @@ const AddAuthor = () =>{
     const [last_name, setLname] = useState('')
 
     const submitAuthor = async() => {
-        const res = await fetch(`http://localhost:8000/api/authors`,{
+        const res = await fetch(process.env.baseURL+`/api/authors`,{
             method: 'POST',
             body: JSON.stringify({ first_name,last_name }),
             headers: {

@@ -4,7 +4,7 @@ import {useState} from 'react'
 const AuthorList = ({authors}) => {
     //Delete
     const deleteAuthor = async authorId =>{
-        const res = await fetch(`http://localhost:8000/api/authors/${authorId}`,{
+        const res = await fetch(process.env.baseURL+`/api/authors/${authorId}`,{
         method: 'DELETE'
     })
     const book = await res.json()
@@ -16,7 +16,7 @@ const AuthorList = ({authors}) => {
     const [last_name, setLname] = useState('')
 
     const updateAuthor = async authorId => {
-    const res = await fetch(`http://localhost:8000/api/authors/${authorId}`,{
+    const res = await fetch(process.env.baseURL+`/api/authors/${authorId}`,{
         method: 'PUT',
         body: JSON.stringify({ first_name,last_name }),
         headers: {

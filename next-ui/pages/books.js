@@ -3,7 +3,7 @@ import BookList from '../components/books/BookList'
 import AddBook from '../components/books/AddBook'
  
 export const getStaticProps = async () => {
-    const res = await fetch(`http://localhost:8000/api/books`)
+    const res = await fetch(process.env.baseURL+`/api/books`)
     const books = await res.json()
 
     return{
